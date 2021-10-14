@@ -1,0 +1,64 @@
+/*
+SELECTORES
+
+
+selectores simples
+	selectores elementales
+		Selector Universal --> *
+		Selector de tipo o etiqueta --> nombre de la etiqueta
+	selectores de atributo
+		id --> id de elemtento
+		clase --> clase del elemento
+		otros atributos se usan las llaves cuadradas []
+selectores compuestos
+	selectores agrupados
+	selectores combinadores
+		selector descendente
+		selector de hermano siguiente
+	pseudoclases - pseudoelementos
+
+*/
+/*Selector Universal*/
+*{
+	background-color: lavender;
+}
+/*Selector de etiqueta*/
+ h1{
+ 	background-color: greenyellow;
+ }
+ /*Selectores de atributo*/
+#title{ 
+	background-color: green;
+}
+
+.title-3{
+	background-color: goldenrod;
+}
+
+[href=""]{
+	background-color: lavender;
+}
+[href^="color"]{
+	background-color: greenyellow;
+}
+
+[href*="https://google.com"]{
+	background-color: brown;
+}
+/*
+.text,
+.text-2,
+.text-3{
+	backgorund-color:  green;
+}
+*/
+
+/*Selector descendente*/
+/*div .title-3 {
+	background-color: sandybrown;
+}*/
+
+/*Selector de hermano siguiente*/
+.text-2 + .text-3 { 
+	background-color: mediumpurple;
+}
