@@ -31,6 +31,7 @@ class Mascota extends Model
         'id_propietario'
     ];
     //relacion belongsTo
+    // Relacion Uno a Uno
     public function especie()
     {
         return $this->belongsTo(Especie::class, 'id_especie', 'id_especie');
