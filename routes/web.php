@@ -22,3 +22,7 @@ Route::apiResource('apiPropietario','PropietarioController');
 Route::get('mascotas', function () {
     return view('mascotas');
 });
+
+Route::get('especie', function(){
+    return view('especies');
+});
