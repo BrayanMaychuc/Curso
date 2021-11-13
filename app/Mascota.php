@@ -11,8 +11,8 @@ class Mascota extends Model
 
     //especificamos las relaciones
 
-    public $with=['especie'];
-    public $with=['raza'];
+    //public $with=['especie'];
+    //public $with=['raza'];
 
     // Define si la llave primaria es o no un numero autoincrementable 
 
@@ -20,7 +20,7 @@ class Mascota extends Model
     
     //Activar o desactivar etiquetas de tiempo
     
-    public $timestamps=true;
+    public $timestamps=false;
 
     public $filliable=[
         'id_mascota',
