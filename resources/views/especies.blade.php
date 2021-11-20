@@ -15,6 +15,7 @@
 	<div class="card card-danger">
 		<div class="card-header">
 			<h4 class="m-0">CRUD DE ESPECIES </h4>
+			<button class="btn btn-primary" @click="mostrarModal()"><i class="far fa-plus-square"></i></button>
 		</div>
 	<table class="table table-bolderd">
 		<thead>
@@ -27,8 +28,7 @@
 					<td>@{{especie.id_especie}}</td>
 					<td>@{{especie.especie}}</td>
 					<td>
-						<button class="btn btn-primary" @click="mostrarModal()"><i class="far fa-plus-square"></i></button>
-						<button class="btn btn-warning"><i class="far fa-edit"></i></button>
+						<button class="btn btn-warning" @click="editEspecie(especie.id_especie)"><i class="far fa-edit"></i></button>
 						<button class="btn btn-danger" @click="deleteEspecie(especie.id_especie)"><i class="fas fa-trash-alt"></i></button>
 					</td>
 				</tr>
@@ -41,7 +41,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registro de Especies</h5>
+        <h5 class="modal-title" id="exampleModalLabel" v-if="editando==0">Registro de Especies</h5>
+        <h5 class="modal-title" id="exampleModalLabel" v-if="editando==1">Edicion de Especies</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -49,19 +50,19 @@
       <div class="modal-body">
         <form>
           <div class="form-row">
-          	<div class="col">
-          		<input type="text" class="form-control" placeholder="clave">
+          	 <div class="col">
+          		<input type="text" class="form-control" placeholder="clave" v-model="id_especie">
           	</div>
 
           	<div class="col">
-          		<input type="text" class="form-control" placeholder="nombre de la especie">
+          		<input type="text" class="form-control" placeholder="nombre de la especie" v-model="especie">
           	</div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" @click="">Guardar</button>
+        <button type="button" class="btn btn-primary" @click="saveEspecies()">Guardar</button>
       </div>
     </div>
   </div>
