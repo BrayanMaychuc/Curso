@@ -136,6 +136,14 @@ new Vue({ //Creamos el objeto vue con nombre mascotas
 			})
 		}, //FIN DEL METODO TRAER
 
+		//INICIO DEL METODO GETRAZAS
+		getRazas(e){
+				var id_especie=e.target.value;
+				this.$http.get(apiEspecie + '/getRazas/' + id_especie).then(function(j){
+					console.log(j.data);
+				});
+		},
+
 	}, //FIN DEL METHODS
 
 	computed:{ //INICIO DEL COMPUTED

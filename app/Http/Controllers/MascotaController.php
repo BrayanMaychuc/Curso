@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mascota;
+
 class MascotaController extends Controller
 {
     /**
@@ -103,4 +104,5 @@ class MascotaController extends Controller
 
         $mascota->delete($id);
     }
+
 }

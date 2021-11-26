@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Especie;
-use DB;
-class EspecieController extends Controller
+use App\Producto;
+
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class EspecieController extends Controller
      */
     public function index()
     {
-        //
-        return $especies = Especie::all();
+        return Producto::all();
     }
 
     /**
@@ -37,11 +36,6 @@ class EspecieController extends Controller
     public function store(Request $request)
     {
         //
-        $especie = new Especie();
-
-        $especie ->id_especie = $request->get('id_especie');
-        $especie ->especie = $request->get('especie');
-        $especie ->save();
     }
 
     /**
@@ -53,7 +47,8 @@ class EspecieController extends Controller
     public function show($id)
     {
         //
-        return $especies = Especie::find($id);
+
+        return Producto::find($id);
     }
 
     /**
@@ -76,12 +71,7 @@ class EspecieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $especies = Especie::find($id);
-
-        $especies->id_especie = $request->get('id_especie');
-        $especies->especie = $request->get('especie');
-
-        $especies->update();
+        //
     }
 
     /**
@@ -92,12 +82,6 @@ class EspecieController extends Controller
      */
     public function destroy($id)
     {
-        $especies =Especie::find($id);
-        $especies ->delete();
-    }
-
-    public function getRazas($id_especie){
-        $razas=DB::select("SELECT * FROM razas WHERE id_especie=$id_especie");
-        return $razas;
+        //
     }
 }

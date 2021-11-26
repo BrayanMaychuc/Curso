@@ -15,7 +15,7 @@
 		<div class="card card-danger"> <!-- inicio de card -->
 			<div class="card-header"> <!-- inicio de card-header -->
 				<h4 class="m-0">MASCOTAS</h4><br>
-				<button class="btn btn-primary" @click="showModal()"><i class="far fa-plus-square" ></i></button><br>
+				<button class="btn btn-primary" @click="showModal()"><i class="far fa-plus-square" ></i></button> <br><br>
 				<div class="col-md-6">
 					<input type="text" placeholder="Escribe el nombre de la Mascota" class="form-control" v-model="find">
 				</div>
@@ -78,8 +78,12 @@
           			<option value="H">HEMBRA</option>
           		</select><br>
 
-          		<select class="form-control" v-model="id_especie">
+          		<select class="form-control" v-model="id_especie" @change="getRazas">
           			 <option v-for="especie in especies" v-bind:value="especie.id_especie">@{{especie.especie}}</option>
+          		</select> <br>
+
+          		<select class="form-control">
+          			<option value="" disabled="">Selecciona una Raza</option>
           		</select>
           	</div> 
           </div>
