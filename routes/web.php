@@ -22,6 +22,12 @@ Route::apiResource('apiPropietario','PropietarioController');
 
 Route::apiResource('apiProducto','ProductoController');
 
+Route::get('puntoventa', function () {
+    return view('ventas');
+});
+
+//FIN DE RUTAS DE PUNTO DE VENTA
+
 Route::get('mascotas', function () {
     return view('mascotas');
 });
