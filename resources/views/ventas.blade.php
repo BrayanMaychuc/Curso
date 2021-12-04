@@ -28,6 +28,7 @@
       			<th style="background: #ffff66">PRECIO</th>
       			<th style="background: #ffff66">CANTIDAD</th>
       			<th style="background: #ffff66">TOTAL</th>
+      			<th style="background: #ffff66">OPERACIONES</th>
     			</tr>
   			</thead>
   				<tbody>
@@ -37,6 +38,9 @@
       				<td>@{{venta.precio_venta}}</td>
       				<td><input type="number" v-model.number="cantidades[index]"></td>
       				<td>@{{totalProducto(index)}}</td>
+      				<td>
+      					<button class="btn btn-default" @click="removeProduct(index)"><i class="fas fa-trash"></i></button>
+      				</td>
    	 				</tr>
      	 		</tbody>
 				</table>
@@ -45,7 +49,7 @@
 	<!-- FIN DEL CARD BODY-->
 </div>
 <!-- FIN DEL CARD-->
- @{{ventas}}
+
 </div> 
 <!-- FIN DEL CONTAINER -->
 
@@ -70,7 +74,11 @@
 									</tr>
 									<tr>
 									<th style="background: #ffff66">total</th>
-									<td>$ Total</td>
+									<td>$ @{{granTotal}}</td>
+									</tr>
+																		<tr>
+									<th style="background: #ffff66">articulos</th>
+									<td>@{{noArticulos}}</td>
 									</tr>
 								</table>
 							

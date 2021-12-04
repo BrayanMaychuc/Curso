@@ -16,6 +16,8 @@ new Vue({ //INICIO DE VUE
 		ventas:[],
 		cantidades:[1,1,1,1,1,1,1,1,1,1],
 		auxSubtotal:0,
+		auxTotal:0,
+
 	}, //FIN DEL DATA
 
 	//INICIO DEL METHODS
@@ -35,6 +37,10 @@ new Vue({ //INICIO DE VUE
 				this.ventas.push(product);
 			})
 		}, //FIN DEL FIND
+
+		removeProduct:function(id){ //INICIO DE ELIMINAR
+			this.ventas.splice(id,1);
+		}, //FIN DE ELIMINAR
 
 	},
 	//FIN DEL METHODS
@@ -71,6 +77,24 @@ new Vue({ //INICIO DE VUE
 				auxIva = this.auxSubtotal * 0.16;
 				return auxIva.toFixed(1);
 		}, //FIN DE IVA
+
+		//INICIO DE TOTAL
+		granTotal(){
+			var auxTotal=0;
+			auxTotal=this.auxSubtotal * 1.16;
+			return auxTotal.toFixed(1);
+		},
+		//FIN DEL TOTAL
+
+		//INCIO DE ARTICULOS
+		noArticulos(){
+			var acum=0;
+			for (var i = this.ventas.length - 1; i >= 0; i--) {
+				acum= acum + this.ventas[i].cantidad;
+			}
+			return acum;
+		}
+		//FIN DE ARTICULOS
 	}
 //FIN DEL COMPUTED
 
