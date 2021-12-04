@@ -35,7 +35,7 @@
 					<td>@{{mascota.nombre}}</td>
 					<td>@{{mascota.peso}}</td>
 					<td>@{{mascota.genero}}</td>
-					<td>@{{mascota.especie}}</td>
+					<td>@{{mascota.especie.especie}}</td>
 					<td>
 					<button class="btn btn-warning" @click="editMascota(mascota.id_mascota)"><i class="far fa-edit" ></i></button>
 					<button class="btn btn-danger"  @click="deleteMascotas(mascota.id_mascota)"><i class="fas fa-trash-alt" ></i></button>

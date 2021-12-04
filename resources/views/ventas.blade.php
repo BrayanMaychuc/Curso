@@ -15,31 +15,72 @@
 				</div>
 			</div>
 		</div><!-- FIN DEL ROW -->
-
+		<!-- INICIO DEL CARD -->
+<div class="card">
+	<!-- INICIO DEL CARD-BODY -->
+	<div class="card-body">
 		<div class="row">
 			<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">SKU</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">PRECIO</th>
-      <th scope="col">CANTIDAD</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="venta in ventas">
-      <th scope="row">@{{venta.sku}}</th>
-      <td>@{{venta.nombre}}</td>
-      <td>@{{venta.precio_venta}}</td>
-      <td>@{{venta.cantidad}}</td>
-      <td>@{{venta.total}}</td>
-    </tr>
-      </tbody>
-</table>
-		</div>
-	</div> <!-- FIN DEL CONTAINER -->
+  			<thead>
+    			<tr>
+      			<th style="background: #ffff66">SKU</th>
+      			<th style="background: #ffff66">NOMBRE</th>
+      			<th style="background: #ffff66">PRECIO</th>
+      			<th style="background: #ffff66">CANTIDAD</th>
+      			<th style="background: #ffff66">TOTAL</th>
+    			</tr>
+  			</thead>
+  				<tbody>
+    				<tr v-for="(venta,index) in ventas">
+      				<th scope="row">@{{venta.sku}}</th>
+      				<td>@{{venta.nombre}}</td>
+      				<td>@{{venta.precio_venta}}</td>
+      				<td><input type="number" v-model.number="cantidades[index]"></td>
+      				<td>@{{totalProducto(index)}}</td>
+   	 				</tr>
+     	 		</tbody>
+				</table>
+			</div>
+	</div>
+	<!-- FIN DEL CARD BODY-->
+</div>
+<!-- FIN DEL CARD-->
+ @{{ventas}}
+</div> 
+<!-- FIN DEL CONTAINER -->
 
-		
+<!-- INICIO DEL ROW -->
+		<div class="row">
+				<div class="col-md-8"></div>
+
+			<div class="col-md-4">
+				<!-- INICIO DEL CARD -->
+				<div class="card">
+				 <!-- INCIO DEL CARD-BODY -->
+					<div class="card-body">							
+						
+								<table class="table table-bordered table-condensed">
+									<tr>
+									<th style="background: #ffff66">subtotal</th>
+									<td>$ @{{subtotal}}</td>
+									</tr>
+									<tr>
+									<th style="background: #ffff66">iva</th>
+									<td>$ @{{iva}}</td>
+									</tr>
+									<tr>
+									<th style="background: #ffff66">total</th>
+									<td>$ Total</td>
+									</tr>
+								</table>
+							
+						</div>
+						<!-- FIN DEL CARD-BODY -->
+				</div>
+				<!-- FIN DEL CARD -->
+			</div>
+		</div>
+		<!-- FIN DEL ROW -->
 
 
 </div>

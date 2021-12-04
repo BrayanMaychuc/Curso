@@ -14,6 +14,8 @@ new Vue({ //INICIO DE VUE
 	data:{ //INICIO DEL DATA
 		sku:'',
 		ventas:[],
+		cantidades:[1,1,1,1,1,1,1,1,1,1],
+		auxSubtotal:0,
 	}, //FIN DEL DATA
 
 	//INICIO DEL METHODS
@@ -29,13 +31,48 @@ new Vue({ //INICIO DE VUE
 					cantidad:1,
 					total:j.data.precio_venta
 				};
+
 				this.ventas.push(product);
-			});
+			})
 		}, //FIN DEL FIND
 
 	},
 	//FIN DEL METHODS
 
+//INICIO DEL COMPUTED
+	computed:{
+
+		totalProducto(){ //INICIO DE TOTAL PRODUCTO
+			return (id)=>{
+				var total=1;
+				// MARCA ERROR AL USAR CANTIDAD, PERO CUANDO USAMOS CANTIDADES NO HACE LA MULTIPLICACION
+				total = this.ventas[id].precio_venta * this.cantidades[id];
+
+				this.ventas[id].total=total; //ACTUALIZAS VENTAS
+				this.ventas[id].cantidad=this.cantidades[id];  //ACTUALIZAMOS CANTIDADES
+				return total.toFixed(1);
+			}
+		}, //FIN DE TOTAL PRODUCTO
+
+		subtotal(){ //INICIO DE SUBTOTAL
+
+			var total=0;
+			for (var i = this.ventas.length - 1; i >= 0; i--) {
+				total=total + this.ventas[i].total;
+			}
+			//SE MANDA UNA COPIA DE LA VARIABLE DEL DATA PARA 
+			//USARLO EN OTROS CALCULOS
+			this.auxSubtotal=total.toFixed(1);
+			return total.toFixed(1);
+		}, //FIN DE SUBTOTAL
+
+		iva(){ //INICIO DE IVA
+			var auxIva = 0;
+				auxIva = this.auxSubtotal * 0.16;
+				return auxIva.toFixed(1);
+		}, //FIN DE IVA
+	}
+//FIN DEL COMPUTED
 
 }) //FIN DE VUE
 }window.onload = init;
