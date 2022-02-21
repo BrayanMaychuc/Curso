@@ -9,7 +9,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('titulo')</title>
   <meta name="token" id="token" value="{{ csrf_token() }}">
-  <script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/vue-resource.js"></script>
 
   <!-- Google Font: Source Sans Pro -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
@@ -17,6 +18,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">
+  
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

@@ -113,3 +113,6 @@
 @push('scripts')
 <script type="text/javascript" src="js/vue-resource.js"></script>
 @endpush
+
+<input type="hidden" name="ruta" value="{{url('/')}}"> 
+<!-- Declaramos el valor del input -->

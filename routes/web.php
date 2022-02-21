@@ -36,6 +36,11 @@ Route::get('especie', function(){
     return view('especies');
 });
 
+//RUTA DE CRUD DE PRODUCTOS
+Route::get('tpro', function(){
+    return view('productos');
+});
+
 //PRIMERA RUTA PARAMETRIZADA
 
 Route::get('getRazas/{id_especie}',[
