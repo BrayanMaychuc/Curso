@@ -46,7 +46,7 @@ function init(){
 					cantidad:this.cantidad
 				};
 				// enviar datos en un archivo
-				this.$http.post(apiProducto,producto).then(function(j){
+				this.$http.post(apiProducto,pro).then(function(j){
 					this.getProductos();
 					this.sku="",
 					this.nombre="",
@@ -108,7 +108,7 @@ function init(){
 					precio:this.precio,
 					cantidad:this.cantidad
 				};
-				this.$http.patch(apiProducto + '/' + this.jpro.sku).then(function(j){
+				this.$http.patch(apiProducto + '/' + this.sku.jpro).then(function(j){
 					this.getProductos();
 				});
 				$('#modalProducto').modal('hide');

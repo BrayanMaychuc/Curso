@@ -46,7 +46,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel" v-if="agregando==true">Agregando Mascotas</h5>
-         <h5 class="modal-title" id="exampleModalLabel" >Editando Mascotas</h5>
+         <h5 class="modal-title" id="exampleModalLabel" v-if="agregando==false" >Editando Mascotas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -74,7 +74,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary" v-if="agregando==true" @click="addProducto()">Guardar</button>
-        <button type="button" class="btn btn-secondary" @click="updateProducto()"> Actualizar</button>
+        <button type="button" class="btn btn-secondary" @click="updateProducto()" v-if="agregando==false"> Actualizar</button>
       </div>
     </div>
   </div>

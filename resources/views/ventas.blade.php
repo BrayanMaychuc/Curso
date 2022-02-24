@@ -15,6 +15,7 @@
 				</div>
 			</div>
 		</div><!-- FIN DEL ROW -->
+		<p v-bind:align=alineacion>@{{frase}}</p>
 		<!-- INICIO DEL CARD -->
 <div class="card">
 	<!-- INICIO DEL CARD-BODY -->
@@ -34,7 +35,8 @@
   				<tbody>
     				<tr v-for="(venta,index) in ventas">
       				<th scope="row">@{{venta.sku}}</th>
-      				<td>@{{venta.nombre}}</td>
+      				<td>@{{venta.nombre}}
+      					<img v-bind:src=venta.foto width="80" height="70"></td>
       				<td>@{{venta.precio_venta}}</td>
       				<td><input type="number" v-model.number="cantidades[index]"></td>
       				<td>@{{totalProducto(index)}}</td>

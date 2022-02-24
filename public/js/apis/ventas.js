@@ -17,6 +17,8 @@ new Vue({ //INICIO DE VUE
 		cantidades:[1,1,1,1,1,1,1,1,1,1],
 		auxSubtotal:0,
 		auxTotal:0,
+		frase:'HOLA MUNDO',
+		alineacion: 'center',
 
 	}, //FIN DEL DATA
 
@@ -31,7 +33,8 @@ new Vue({ //INICIO DE VUE
 					nombre:j.data.nombre,
 					precio_venta:j.data.precio_venta,
 					cantidad:1,
-					total:j.data.precio_venta
+					total:j.data.precio_venta,
+					foto:'prods/' + j.data.foto,
 				};
 
 				this.ventas.push(product);
