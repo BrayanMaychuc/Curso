@@ -46,6 +46,9 @@
    	 				</tr>
      	 		</tbody>
 				</table>
+
+				@{{ventas}}
+				@{{cantidades}}
 			</div>
 	</div>
 	<!-- FIN DEL CARD BODY-->

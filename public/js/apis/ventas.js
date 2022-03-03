@@ -14,7 +14,7 @@ new Vue({ //INICIO DE VUE
 	data:{ //INICIO DEL DATA
 		sku:'',
 		ventas:[],
-		cantidades:[1,1,1,1,1,1,1,1,1,1],
+		cantidades:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 		auxSubtotal:0,
 		auxTotal:0,
 		frase:'HOLA MUNDO',
@@ -25,20 +25,41 @@ new Vue({ //INICIO DE VUE
 	//INICIO DEL METHODS
 	methods:{
 		findProduct:function(){ //INICIO DEL FIND
+
+			var encontrado=0;
+
 			var product = {}
 
+			//rutina de busqueda
+			for (var i = 0; i < this.ventas.length; i++) {
+				if (this.sku===this.ventas[i].sku) {
+					encontrado=1;
+					this.ventas[i].cantidad++;
+					this.cantidades[i]++;
+					this.sku="";
+					break;
+				}
+				//this.ventas[i]
+			}
+			
+			if (encontrado===0)
 			this.$http.get(apiProducto + '/' + this.sku).then(function(j){
 				product = {
 					sku:j.data.sku,
 					nombre:j.data.nombre,
-					precio_venta:j.data.precio_venta,
+					precio_venta:j.data.precio,
 					cantidad:1,
-					total:j.data.precio_venta,
+					total:j.data.precio,
 					foto:'prods/' + j.data.foto,
+
 				};
+				this.cantidades.push[1];
+				console.log(product);
+				
 
 				this.ventas.push(product);
-			})
+			});
+
 		}, //FIN DEL FIND
 
 		removeProduct:function(id){ //INICIO DE ELIMINAR
