@@ -12,12 +12,15 @@
   					<div class="input-group-append">
 						<button class="btn btn-outline-secondary" @click="findProduct()" type="button">Buscar</button>
 					</div>
+					<div class="input-group-append">
+						<button class="btn btn-success" @click="showModal()">Cobrar</button>
+					</div>
 				</div>
 			</div>
 		</div><!-- FIN DEL ROW -->
-		<p v-bind:align=alineacion>@{{frase}}</p>
+
 		<!-- INICIO DEL CARD -->
-<div class="card">
+	<div class="card">
 	<!-- INICIO DEL CARD-BODY -->
 	<div class="card-body">
 		<div class="row">
@@ -45,57 +48,101 @@
       				</td>
    	 				</tr>
      	 		</tbody>
-				</table>
-
-				@{{ventas}}
-				@{{cantidades}}
+				</table>	
 			</div>
-	</div>
+			@{{ventas}}
+				@{{cantidades}}
+		</div>
 	<!-- FIN DEL CARD BODY-->
-</div>
-<!-- FIN DEL CARD-->
+	</div>
+	<!-- FIN DEL CARD-->
 
-</div> 
-<!-- FIN DEL CONTAINER -->
+	</div> 
+	<!-- FIN DEL CONTAINER -->
 
-<!-- INICIO DEL ROW -->
-		<div class="row">
-				<div class="col-md-8"></div>
-
+	<!-- INICIO DEL ROW -->
+	<div class="row">
+		<div class="col-md-8"></div>
 			<div class="col-md-4">
 				<!-- INICIO DEL CARD -->
 				<div class="card">
 				 <!-- INCIO DEL CARD-BODY -->
 					<div class="card-body">							
 						
-								<table class="table table-bordered table-condensed">
-									<tr>
-									<th style="background: #ffff66">subtotal</th>
-									<td>$ @{{subtotal}}</td>
-									</tr>
-									<tr>
-									<th style="background: #ffff66">iva</th>
-									<td>$ @{{iva}}</td>
-									</tr>
-									<tr>
-									<th style="background: #ffff66">total</th>
-									<td>$ @{{granTotal}}</td>
-									</tr>
-																		<tr>
-									<th style="background: #ffff66">articulos</th>
-									<td>@{{noArticulos}}</td>
-									</tr>
-								</table>
-							
+							<table class="table table-bordered table-condensed">
+								<tr>
+								<th style="background: #ffff66">subtotal</th>
+								<td>$ @{{subtotal}}</td>
+								</tr>
+								<tr>
+								<th style="background: #ffff66">iva</th>
+								<td>$ @{{iva}}</td>
+								</tr>
+								<tr>
+								<th style="background: #ffff66">total</th>
+								<td>$ @{{granTotal}}</td>
+								</tr>
+																	<tr>
+								<th style="background: #ffff66">articulos</th>
+								<td>@{{noArticulos}}</td>
+								</tr>
+							</table>
 						</div>
-						<!-- FIN DEL CARD-BODY -->
+					<!-- FIN DEL CARD-BODY -->
 				</div>
 				<!-- FIN DEL CARD -->
 			</div>
 		</div>
 		<!-- FIN DEL ROW -->
 
-
+		<!-- INICIO DE VENTANA MODAL -->
+	<!-- Modal para el formulario del registro de los moovimientos -->
+	<div class="modal fade" id="modalCobro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title" id="exampleModalLabel">Aqui Titulo</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+        	<form>
+          		<div class="form-row">
+            		<div class="col-md-2">
+              			<label>A pagar</label>
+            		</div>
+            		<div class="col-md-6">
+            			<input type="number" class="form-control" disabled :value="granTotal">
+            		</div> 
+            	</div><br>
+            	<div class="form-row">
+            		<div class="col-md-2">
+              			<label>Paga Con</label>
+            		</div>
+            		<div class="col-md-6">
+            			<input type="number" class="form-control" v-model="pagara_con">
+            		</div>
+            	</div> <br>
+            	<div class="form-row">
+            		<div class="col-md-2">
+              			<label> Su cambio es </label>
+            		</div>
+            		<div class="col-md-6">
+            			<input type="number" class="form-control" disabled :value="cambio">
+            		</div>
+            	</div>
+          		
+        	</form>
+     	</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        		<button type="button" class="btn btn-primary">Guardar</button>
+      		</div>
+    	</div>
+  	</div>
+	</div>
+	<!-- aqui termina el modal-->
 </div>
 <!-- FIN DE VUE -->
 @endsection

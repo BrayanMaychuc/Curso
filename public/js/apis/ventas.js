@@ -17,8 +17,7 @@ new Vue({ //INICIO DE VUE
 		cantidades:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 		auxSubtotal:0,
 		auxTotal:0,
-		frase:'HOLA MUNDO',
-		alineacion: 'center',
+		pagara_con:0
 
 	}, //FIN DEL DATA
 
@@ -66,10 +65,15 @@ new Vue({ //INICIO DE VUE
 			this.ventas.splice(id,1);
 		}, //FIN DE ELIMINAR
 
+		// INICIO DE MODALCOBRO
+		showModal:function(){
+			$('#modalCobro').modal('show');
+		} //FIN DE MODALCOBRO
 	},
+
 	//FIN DEL METHODS
 
-//INICIO DEL COMPUTED
+	//INICIO DEL COMPUTED
 	computed:{
 
 		totalProducto(){ //INICIO DE TOTAL PRODUCTO
@@ -117,8 +121,19 @@ new Vue({ //INICIO DE VUE
 				acum= acum + this.ventas[i].cantidad;
 			}
 			return acum;
-		}
+		},
 		//FIN DE ARTICULOS
+
+		// INICIO DE VALOR PARA CALCULAR EL CAMBIO
+		cambio(){
+			var camb=0;
+			camb=this.pagara_con - this.granTotal;
+			camb=camb.toFixed(1);
+
+			return camb
+		}
+		// FIN DE VALOR PARA CALCULAR CAMBIO
+
 	}
 //FIN DEL COMPUTED
 
