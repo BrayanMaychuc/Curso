@@ -104,5 +104,4 @@ class MascotaController extends Controller
 
         $mascota->delete($id);
     }
-
 }

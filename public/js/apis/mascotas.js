@@ -1,9 +1,9 @@
 function init(){ //Es importante esta funcion para forzar la inicializacion del vue
  
- var ruta = document.querySelector("[name=route]").value; //Declaramos el valor con lar uta relativa
+ // var ruta = document.querySelector("[name=route]").value; //Declaramos el valor con lar uta relativa
 
- var apiMascota = ruta + '/apiMascota';
- var apiEspecie= ruta + '/apiEspecie';
+ var apiMascota =  'http://localhost/Curso/public/apiMascota';
+ var apiEspecie= 'http://localhost/Curso/public/apiEspecie';
 
 new Vue({ //Creamos el objeto vue con nombre mascotas
 	http: {

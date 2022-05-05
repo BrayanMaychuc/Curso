@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 Route::apiResource('apiMascota','MascotaController');
 Route::apiResource('apiEspecie','EspecieController');
+// ENRUTAMOS LA API
+Route::apiResource('apiVenta', 'ventaController');
 
 Route::apiResource('apiPropietario','PropietarioController');
 //PUNTO DE VENTA RUTAS
@@ -47,4 +49,9 @@ Route::get('getRazas/{id_especie}',[
     'as' => 'getRazas',
     'uses' => 'EspecieController@getRazas',
 ]);
+
+Route::get('ticket/{folio}', [
+                     'as'=> 'ticket' ,
+                     'uses'=>'ventaController@ticket'
+                     ]);
 
